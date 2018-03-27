@@ -1,0 +1,21 @@
+{
+  "name": "sussexdev/module-sampleuicomponent",
+  "description": "A Magento 2 sample module demonstrating how to implement a grid and form UI Component.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "magento2-module",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/ScottParsons/module-sampleuicomponent"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SussexDev\\Sample\\": ""
+    }
+  }
+}

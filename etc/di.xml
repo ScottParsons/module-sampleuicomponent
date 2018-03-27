@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * SussexDev_Sample
+
+ * @category   SussexDev
+ * @package    SussexDev_Sample
+ * @copyright  Copyright (c) 2018 Scott Parsons
+ * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SussexDev\Sample\Api\DataRepositoryInterface" type="SussexDev\Sample\Model\DataRepository" />
+    <preference for="SussexDev\Sample\Api\Data\DataInterface" type="SussexDev\Sample\Model\Data" />
+    <virtualType name="SampleDataGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SampleDataGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">SussexDev\Sample\Model\Resource\Data\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">SampleDataGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="SussexDev\Sample\Model\ResourceModel\Data\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sussexdev_sample_data</argument>
+            <argument name="resourceModel" xsi:type="string">SussexDev\Sample\Model\ResourceModel\Data</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sample_data_grid_data_source" xsi:type="string">SussexDev\Sample\Model\ResourceModel\Data\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="SussexDev\Sample\Controller\Adminhtml\Data\MassDelete">
+        <arguments>
+            <argument name="successMessage" xsi:type="string" translate="true">A total of %1 record(s) have been deleted.</argument>
+            <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while deleting record(s).</argument>
+        </arguments>
+    </type>
+    <type name="SussexDev\Sample\Controller\Adminhtml\Data\MassDisable">
+        <arguments>
+            <argument name="successMessage" xsi:type="string" translate="true">A total of %1 data have been disabled.</argument>
+            <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while disabling selected data.</argument>
+        </arguments>
+    </type>
+    <type name="SussexDev\Sample\Controller\Adminhtml\Data\MassEnable">
+        <arguments>
+            <argument name="successMessage" xsi:type="string" translate="true">A total of %1 data have been enabled.</argument>
+            <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while enabling data.</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * SussexDev_Sample
+
+ * @category   SussexDev
+ * @package    SussexDev_Sample
+ * @copyright  Copyright (c) 2018 Scott Parsons
+ * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="sample_data_form"/>
+        </referenceContainer>
+    </body>
+</page>

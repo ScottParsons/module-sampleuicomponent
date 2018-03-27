@@ -1,0 +1,17 @@
+<!--
+/*
+ * SussexDev_Sample
+
+ * @category   SussexDev
+ * @package    SussexDev_Sample
+ * @copyright  Copyright (c) 2018 Scott Parsons
+ * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SussexDev_Sample::data" title="Sample Data" module="SussexDev_Sample" sortOrder="75" resource="SussexDev_Sample::data"
+             action="sample/data/index"/>
+    </menu>
+</config>
