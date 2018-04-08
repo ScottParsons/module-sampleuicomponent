@@ -8,11 +8,11 @@
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
  * @version    1.0.0
  */
-namespace SussexDev\Sample\Block\Adminhtml\Block\Edit;
+namespace SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class SaveButton extends GenericButton implements ButtonProviderInterface
+class Back extends Generic implements ButtonProviderInterface
 {
     /**
      * Get button attributes
@@ -22,13 +22,20 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         return [
-            'label' => __('Save Data'),
-            'class' => 'save primary',
-            'data_attribute' => [
-                'mage-init' => ['button' => ['event' => 'save']],
-                'form-role' => 'save',
-            ],
-            'sort_order' => 90,
+            'label' => __('Back'),
+            'on_click' => sprintf("location.href = '%s';", $this->getBackUrl()),
+            'class' => 'back',
+            'sort_order' => 10
         ];
+    }
+
+    /**
+     * Get URL for back button
+     *
+     * @return string
+     */
+    public function getBackUrl()
+    {
+        return $this->getUrl('*/*/');
     }
 }

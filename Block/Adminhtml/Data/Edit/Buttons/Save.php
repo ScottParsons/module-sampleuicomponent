@@ -8,29 +8,27 @@
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
  * @version    1.0.0
  */
-namespace SussexDev\Sample\Block\Adminhtml\Block\Edit;
+namespace SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class SaveAndContinueButton extends GenericButton implements ButtonProviderInterface
+class Save extends Generic implements ButtonProviderInterface
 {
-
     /**
-     * Get buttong attributes
+     * Get button attributes
      *
      * @return array
      */
     public function getButtonData()
     {
         return [
-            'label' => __('Save and Continue Edit'),
-            'class' => 'save',
+            'label' => __('Save Data'),
+            'class' => 'save primary',
             'data_attribute' => [
-                'mage-init' => [
-                    'button' => ['event' => 'saveAndContinueEdit'],
-                ],
+                'mage-init' => ['button' => ['event' => 'save']],
+                'form-role' => 'save',
             ],
-            'sort_order' => 80,
+            'sort_order' => 90,
         ];
     }
 }

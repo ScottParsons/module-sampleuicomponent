@@ -8,12 +8,12 @@
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
  * @version    1.0.0
  */
-namespace SussexDev\Sample\Block\Adminhtml\Block\Edit;
+namespace SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Exception\NoSuchEntityException;
 
-class GenericButton
+class Generic
 {
     /**
      * @var Context

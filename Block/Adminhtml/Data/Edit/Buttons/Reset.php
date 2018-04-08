@@ -8,11 +8,11 @@
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
  * @version    1.0.0
  */
-namespace SussexDev\Sample\Block\Adminhtml\Block\Edit;
+namespace SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class BackButton extends GenericButton implements ButtonProviderInterface
+class Reset implements ButtonProviderInterface
 {
     /**
      * Get button attributes
@@ -22,20 +22,10 @@ class BackButton extends GenericButton implements ButtonProviderInterface
     public function getButtonData()
     {
         return [
-            'label' => __('Back'),
-            'on_click' => sprintf("location.href = '%s';", $this->getBackUrl()),
-            'class' => 'back',
-            'sort_order' => 10
+            'label' => __('Reset'),
+            'class' => 'reset',
+            'on_click' => 'location.reload();',
+            'sort_order' => 30
         ];
-    }
-
-    /**
-     * Get URL for back button
-     *
-     * @return string
-     */
-    public function getBackUrl()
-    {
-        return $this->getUrl('*/*/');
     }
 }

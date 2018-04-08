@@ -8,14 +8,14 @@
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
  * @version    1.0.0
  */
-namespace SussexDev\Sample\Block\Adminhtml\Block\Edit;
+namespace SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class DeleteButton extends GenericButton implements ButtonProviderInterface
+class Delete extends Generic implements ButtonProviderInterface
 {
     /**
-     * Get button attributes
+     * Get button attributeså
      *
      * @return array
      */
