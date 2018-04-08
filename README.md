@@ -6,7 +6,7 @@ A Magento 2 sample module demonstrating how to implement a grid and form UI Comp
 
 ## Requirements
 
-Magento Open Source (CE) Version 2.1.x, 2.2.x
+Magento Open Source (CE) Version 2.2.x
 
 ## Installation
 
