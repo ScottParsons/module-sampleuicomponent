@@ -14,98 +14,118 @@
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">sample_data_form.sample_data_form_data_source</item>
-            <item name="deps" xsi:type="string">sample_data_form.sample_data_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Data Information</item>
-        <item name="config" xsi:type="array">
-            <item name="dataScope" xsi:type="string">data</item>
-            <item name="namespace" xsi:type="string">sample_form</item>
-        </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
-        <item name="buttons" xsi:type="array">
-            <item name="back" xsi:type="string">SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Back</item>
-            <item name="delete" xsi:type="string">SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Delete</item>
-            <item name="reset" xsi:type="string">SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Reset</item>
-            <item name="save" xsi:type="string">SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Save</item>
-            <item name="save_and_continue" xsi:type="string">SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\SaveAndContinue</item>
-        </item>
     </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Back" />
+            <button name="delete" class="SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Delete" />
+            <button name="reset" class="SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Reset" />
+            <button name="save" class="SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\Save" />
+            <button name="save_and_continue" class="SussexDev\Sample\Block\Adminhtml\Data\Edit\Buttons\SaveAndContinue" />
+        </buttons>
+        <namespace>sample_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>sample_data_form.sample_data_form_data_source</dep>
+        </deps>
+    </settings>
     <dataSource name="sample_data_form_data_source">
-        <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">SussexDev\Sample\Model\DataProvider</argument>
-            <argument name="name" xsi:type="string">sample_data_form_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">data_id</argument>
-            <argument name="requestFieldName" xsi:type="string">data_id</argument>
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="submit_url" xsi:type="url" path="sample/data/save"/>
-                </item>
-            </argument>
-        </argument>
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
+        <settings>
+            <submitUrl path="sample/data/save"/>
+        </settings>
+        <dataProvider class="SussexDev\Sample\Model\DataProvider" name="sample_data_form_data_source">
+            <settings>
+                <requestFieldName>data_id</requestFieldName>
+                <primaryFieldName>data_id</primaryFieldName>
+            </settings>
+        </dataProvider>
     </dataSource>
     <fieldset name="data_details">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">Data Details</item>
-            </item>
-        </argument>
-        <field name="data_id">
+        <settings>
+            <label/>
+        </settings>
+        <field name="data_id" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="visible" xsi:type="boolean">false</item>
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Data ID</item>
-                    <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">data</item>
-                    <item name="dataScope" xsi:type="string">data_id</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>data_id</dataScope>
+            </settings>
         </field>
-        <field name="is_active">
+        <field name="is_active" formElement="checkbox">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">boolean</item>
-                    <item name="label" xsi:type="string" translate="true">Enable Data</item>
-                    <item name="formElement" xsi:type="string">checkbox</item>
-                    <item name="source" xsi:type="string">block</item>
-                    <item name="dataScope" xsi:type="string">is_active</item>
-                    <item name="prefer" xsi:type="string">toggle</item>
-                    <item name="valueMap" xsi:type="array">
-                        <item name="true" xsi:type="number">1</item>
-                        <item name="false" xsi:type="number">0</item>
-                    </item>
+                    <item name="source" xsi:type="string">data</item>
                     <item name="default" xsi:type="number">1</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Data</label>
+                <dataScope>is_active</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
         </field>
-        <field name="data_title">
+        <field name="data_title" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Data Title</item>
-                    <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">data</item>
-                    <item name="dataScope" xsi:type="string">data_title</item>
                 </item>
             </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Data Title</label>
+                <dataScope>data_title</dataScope>
+            </settings>
         </field>
-        <field name="data_description">
+        <field name="data_description" formElement="wysiwyg">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="formElement" xsi:type="string">wysiwyg</item>
                     <item name="source" xsi:type="string">data</item>
-                    <item name="label" xsi:type="string" translate="true">Data Description</item>
-                    <item name="dataScope" xsi:type="string">data_description</item>
-                    <item name="validation" xsi:type="array">
-                        <item name="required-entry" xsi:type="boolean">true</item>
-                    </item>
                 </item>
             </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label/>
+                <dataScope>data_description</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
         </field>
     </fieldset>
 </form>
