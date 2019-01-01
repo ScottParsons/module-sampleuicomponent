@@ -6,7 +6,7 @@
  * @package    SussexDev_Sample
  * @copyright  Copyright (c) 2019 Scott Parsons
  * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
- * @version    1.0.0
+ * @version    1.1.2
  */
 namespace SussexDev\Sample\Controller\Adminhtml;
 
